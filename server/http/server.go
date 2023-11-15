@@ -1,11 +1,11 @@
-package server
+package httpserver
 
 import (
 	"log/slog"
 	"net/http"
 	"time"
-	"website/server/handlers"
-	"website/server/routes"
+	"website/server/http/handlers"
+	"website/server/http/routes"
 )
 
 type HTTTPServerConfig struct {

@@ -1,3 +1,4 @@
+// Package endpoints provides an abstraction for RPCs.
 package endpoints
 
 import (
@@ -6,6 +7,7 @@ import (
 	"website/services/coreapi"
 )
 
+// Endpoint
 type Endpoint func(ctx context.Context, req interface{}) (interface{}, error)
 
 type EndpointSet struct {

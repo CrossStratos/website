@@ -3,7 +3,7 @@ package routes
 import (
 	"fmt"
 	"net/http"
-	"website/server/handlers"
+	"website/server/http/handlers"
 
 	"github.com/go-chi/chi/v5"
 )

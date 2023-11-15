@@ -3,13 +3,11 @@ package main
 import (
 	"log/slog"
 	"os"
-	"website/server"
 	"website/server/endpoints"
-	"website/server/handlers"
+	httpserver "website/server/http"
+	"website/server/http/handlers"
 	"website/services/coreapi"
 )
-
-const bindAddress = "localhost:1234"
 
 var (
 	Version    = "dev"
@@ -33,13 +31,12 @@ func main() {
 	eps := endpoints.NewEndpointSet(coreSvc)
 	hndlers := handlers.NewHandlerSet(eps)
 
-	httpServer := server.NewHTTPServer(server.HTTTPServerConfig{
-		Addr:    bindAddress,
+	httpServer := httpserver.NewHTTPServer(httpserver.HTTTPServerConfig{
+		Addr:    ":443",
 		Logger:  logger,
 		Hndlers: hndlers,
 	})
-	err := httpServer.ListenAndServe()
-	logger.Warn("Server exited.", err)
 
-	return
+	err := httpServer.ListenAndServeTLS("certs/website.crt", "certs/website.key")
+	logger.Warn("Server exited.", err)
 }

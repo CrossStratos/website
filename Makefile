@@ -17,6 +17,13 @@ build:
 		-o build/${BINARY_NAME}-linux.elf \
 		cmd/website/main.go
 
+.PHONY run:
+run:
+	build/${BINARY_NAME}-linux.elf
+
+certs:
+	mkdir -p certs
+
 .PHONY clean:
 clean:
 	rm -rf build
