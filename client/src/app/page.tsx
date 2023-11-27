@@ -1,24 +1,16 @@
-'use client'
-
-import LandingPageView from '@/components/views/landing/container';
-import NavBarView from '@/components/views/navbar/container';
+import LandingPageView from '@/components/views/landing/landing';
 import React from 'react';
-import { Routes } from '@/data/routes/routes'
+import { NewRoutes } from '@/data/routes/routes'
 
 export default function Home() {
-  const routes: Routes = {
-    resumeRoute: "/resume.pdf",
-    aboutRoute: "/about",
-    projectsRoute: "/projects"
-  }
+  const routes = NewRoutes()
 
   return (
     <main className="flex min-h-screen flex-col">
-      {NavBarView(routes)}
       <section>
-      <div className='curve'/>
-      <LandingPageView/>
-      </section>  
+        <div className='curve' />
+        <LandingPageView routes={routes} />
+      </section>
     </main>
   )
 }
