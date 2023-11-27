@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb:   0, 0, 0;
+  --background-start-rgb: 226, 223, 223;
+  --background-end-rgb: 226, 223, 223;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,4 +24,51 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 50px;
+  padding-top: 25%;
+  background: #fafafa;
+  z-index: 0;
+}
+
+.curve {
+  position: absolute;
+  height: 250px;
+  width: 100%;
+  bottom: 20px;
+  text-align: center;
+}
+
+.curve::before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 70% 0%;
+  width: 55%;
+  height: 100%;
+  transform: translate(90%, 80%);
+  background-color: rgb(226, 223, 223);
+  overflow: hidden;
+  z-index: -1;
+}
+
+.curve::after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 65%;
+  height: 100%;
+  background-color: #fafafa;
+  transform: translate(-2%, 40%);
+  overflow: hidden;
+  z-index: 0;
 }

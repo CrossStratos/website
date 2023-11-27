@@ -1,0 +1,14 @@
+
+
+.landing-container {
+    width: 60%; 
+    height: 400px; 
+    position: absolute; 
+    top: 50%; 
+    background-color: black;
+    opacity: .85;
+}
+
+p {
+    font-family: "font-family:monospace";
+}
